@@ -12,16 +12,22 @@ struct AddHabitView: View {
     @ObservedObject var habits: Habits
     @State private var title = ""
     @State private var description = ""
-    @State private var category: HabitCategory = .physicalHealth
-        
+    @State private var category: HabitCategory = .fitness
+    @State private var showAlert = false
+    
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Title", text: $title)
-                    TextField("Description", text: $description)
+                    TextField("Habit title", text: $title)
                 } header: {
-                    Text("Title and description")
+                    Text("Title")
+                }
+                
+                Section {
+                    TextField("Habit description", text: $description)
+                } header: {
+                    Text("Description")
                 }
                 
                 Section {
@@ -30,29 +36,55 @@ struct AddHabitView: View {
                             Text($0.rawValue)
                         }
                     }
-                    .pickerStyle(.menu)
+                    .pickerStyle(.wheel)
+                    .frame(height: 150)
                 } header: {
                     Text("Category")
+                        .frame(maxWidth: .infinity)
                 }
-                
-                Section {
+            }
+            .navigationTitle("New habit")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        let habitItem = HabitItem(
-                            title: title,
-                            description: description,
-                            category: category,
-                            timesCompleted: 0
-                        )
-                        habits.items.append(habitItem)
                         dismiss()
                     } label: {
-                        Text("Add")
+                        Text("Close")
                     }
+                }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            if title.isEmpty {
+                                showAlert = true
+                            } else {
+                                let habitItem = HabitItem(
+                                    title: title,
+                                    description: description,
+                                    category: category,
+                                    timesCompleted: 0
+                                )
+                                habits.items.append(habitItem)
+                                dismiss()
+                            }
+                        } label: {
+                            Text("Add")
+                        }
+
                     
                 }
             }
-            .navigationTitle("Add a habit")
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Error"),
+                    message: Text("Title can not be empty."),
+                    dismissButton: .default(Text("OK")) {
+                        showAlert = false
+                    }
+                )
+            }
         }
+        .preferredColorScheme(.dark)
     }
 }
 

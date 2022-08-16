@@ -8,9 +8,48 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var habits = Habits()
+    @State private var showingSheet = false
+    @State private var searchString = ""
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            List {
+                ForEach(habits.items) { item in
+                    HabitRow(habits: habits, item: item)
+                }
+                .onMove(perform: move)
+                .onDelete(perform: removeItems)
+            }
+            .listStyle(.plain)
+            .refreshable { }
+            .navigationTitle("Habitrack")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        showingSheet.toggle()
+                    } label: {
+                        Text("New habit")
+                    }
+                    .sheet(isPresented: $showingSheet) {
+                        AddHabitView(habits: habits)
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+            }
+        }
+        .preferredColorScheme(.dark)
+    }
+    
+    func removeItems(at offsets: IndexSet) {
+        habits.items.remove(atOffsets: offsets)
+    }
+    
+    func move(from source: IndexSet, to destination: Int) {
+        habits.items.move(fromOffsets: source, toOffset: destination)
     }
 }
 
