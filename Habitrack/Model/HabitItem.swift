@@ -17,8 +17,9 @@ enum HabitCategory: String, CaseIterable, Codable {
 
 struct HabitItem: Identifiable, Codable, Equatable {
     var id = UUID()
-    let title: String
-    let description: String
-    let category: HabitCategory
+    var title: String
+    var description: String
+    var category: HabitCategory
     var timesCompleted: Int
+    let date: Date
 }

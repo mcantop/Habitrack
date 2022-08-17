@@ -25,9 +25,8 @@ struct HabitRow: View {
                     .resizable()
                     .symbolRenderingMode(.palette)
                     .foregroundStyle(.white, .black)
-                    .frame(width: 35, height: 35)
+                    .frame(width: 25, height: 25)
                     .padding(15)
-                
                 HStack {
                     Image(systemName: "forward.fill")
                     Text(item.timesCompleted.formatted())
@@ -48,28 +47,23 @@ struct HabitRow: View {
                         .contentShape(Rectangle())
                         .frame(maxWidth: .infinity, alignment: .leading)
                 } else {
-                
-                VStack(spacing: 5) {
-                    Text(item.title)
-                        .contentShape(Rectangle())
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Text(item.description)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .foregroundColor(.gray)
+                    VStack(spacing: 3) {
+                        Text(item.title)
+                            .contentShape(Rectangle())
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Text(item.description)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .foregroundColor(.gray)
+                    }
+                    .lineLimit(1)
                 }
-                .lineLimit(1)
-                
-                }
-                
                 Image(systemName: "chevron.right")
                     .foregroundColor(.gray)
             }
-            
-            
             .buttonStyle(.plain)
             
-            NavigationLink(destination: HabitView(habits: habits, item: item), isActive: $isPresentingHabit) { }
+            NavigationLink(destination: HabitDetailsView(habits: habits, item: item), isActive: $isPresentingHabit) { }
                 .frame(width: 0, height: 0)
                 .hidden()
         }
@@ -81,6 +75,6 @@ struct HabitRow: View {
 
 struct HabitRow_Previews: PreviewProvider {
     static var previews: some View {
-        HabitRow(habits: Habits(), item: HabitItem(title: "title", description: "description", category: .work, timesCompleted: 7))
+        HabitRow(habits: Habits(), item: HabitItem(title: "title", description: "description", category: .work, timesCompleted: 7, date: Date.now))
     }
 }

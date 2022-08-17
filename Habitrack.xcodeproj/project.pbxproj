@@ -15,7 +15,7 @@
 		5236FE2F28A82EB800964383 /* HabitItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5236FE2E28A82EB800964383 /* HabitItem.swift */; };
 		5236FE3128A8311800964383 /* Habits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5236FE3028A8311800964383 /* Habits.swift */; };
 		5236FE3528A835B500964383 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5236FE3428A835B500964383 /* AddHabitView.swift */; };
-		5276282628A9998F0009FDF3 /* HabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276282528A9998F0009FDF3 /* HabitView.swift */; };
+		5276282628A9998F0009FDF3 /* HabitDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276282528A9998F0009FDF3 /* HabitDetailsView.swift */; };
 		5276282828AA5C530009FDF3 /* HabitRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276282728AA5C530009FDF3 /* HabitRow.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +29,7 @@
 		5236FE2E28A82EB800964383 /* HabitItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitItem.swift; sourceTree = "<group>"; };
 		5236FE3028A8311800964383 /* Habits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habits.swift; sourceTree = "<group>"; };
 		5236FE3428A835B500964383 /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
-		5276282528A9998F0009FDF3 /* HabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitView.swift; sourceTree = "<group>"; };
+		5276282528A9998F0009FDF3 /* HabitDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsView.swift; sourceTree = "<group>"; };
 		5276282728AA5C530009FDF3 /* HabitRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				5236FE3428A835B500964383 /* AddHabitView.swift */,
-				5276282528A9998F0009FDF3 /* HabitView.swift */,
+				5276282528A9998F0009FDF3 /* HabitDetailsView.swift */,
 				5276282728AA5C530009FDF3 /* HabitRow.swift */,
 			);
 			path = Views;
@@ -174,7 +174,7 @@
 				5236FE2328A8283000964383 /* ContentView.swift in Sources */,
 				5236FE2128A8283000964383 /* HabitrackApp.swift in Sources */,
 				5236FE3128A8311800964383 /* Habits.swift in Sources */,
-				5276282628A9998F0009FDF3 /* HabitView.swift in Sources */,
+				5276282628A9998F0009FDF3 /* HabitDetailsView.swift in Sources */,
 				523028A628AABB2E00DA0729 /* AssignColors.swift in Sources */,
 				5236FE2F28A82EB800964383 /* HabitItem.swift in Sources */,
 				5276282828AA5C530009FDF3 /* HabitRow.swift in Sources */,

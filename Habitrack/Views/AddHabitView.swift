@@ -62,7 +62,8 @@ struct AddHabitView: View {
                                     title: title,
                                     description: description,
                                     category: category,
-                                    timesCompleted: 0
+                                    timesCompleted: 0,
+                                    date: Date.now
                                 )
                                 habits.items.append(habitItem)
                                 dismiss()
